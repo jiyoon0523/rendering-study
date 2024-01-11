@@ -6,26 +6,33 @@ using UnityEngine;
 public class RectangleDrawer : MonoBehaviour
 {
     private Mesh mesh;
+    [SerializeField] private Material mat;
+
+    private MeshFilter meshFilter;
+    private MeshRenderer meshRenderer;
 
     private void Awake()
     {
         mesh = new Mesh();
 
-        var meshFilter = this.GetComponent<MeshFilter>();
+        meshFilter = this.GetComponent<MeshFilter>();
         if (!meshFilter) meshFilter= this.AddComponent<MeshFilter>();
         meshFilter.mesh = mesh;
 
-        var meshRenderer = this.GetComponent<MeshRenderer>();
+        meshRenderer = this.GetComponent<MeshRenderer>();
         if (!meshRenderer) meshRenderer= this.AddComponent<MeshRenderer>();
     }
 
     private void Start()
     {
         DrawRectangle();
+        ApplyShader();
     }
 
     private void DrawRectangle()
     {
+        Debug.Log("Draw Rectangle!");
+
         Vector3[] vertices = new Vector3[4];
         vertices[0] = new Vector3(0, 0, 0);
         vertices[1] = new Vector3(1, 0, 0);
@@ -40,5 +47,11 @@ public class RectangleDrawer : MonoBehaviour
         mesh.triangles = triangles;
 
         mesh.RecalculateNormals();
+    }
+    
+    private void ApplyShader()
+    {
+        Debug.Log("Apply Shader!");
+        meshRenderer.material = mat;
     }
 }
