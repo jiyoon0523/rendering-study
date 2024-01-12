@@ -11,6 +11,8 @@ public class RectangleDrawer : MonoBehaviour
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
 
+    [SerializeField] private Vector3[] vertices = new Vector3[4];
+
     private void Awake()
     {
         mesh = new Mesh();
@@ -33,11 +35,6 @@ public class RectangleDrawer : MonoBehaviour
     {
         Debug.Log("Draw Rectangle!");
 
-        Vector3[] vertices = new Vector3[4];
-        vertices[0] = new Vector3(0, 0, 0);
-        vertices[1] = new Vector3(1, 0, 0);
-        vertices[2] = new Vector3(1, 1, 0);
-        vertices[3] = new Vector3(0, 1, 0);
         mesh.vertices = vertices;
 
         int[] triangles = new int[6] {
