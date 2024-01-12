@@ -28,6 +28,7 @@ public class RectangleDrawer : MonoBehaviour
     private void Start()
     {
         DrawRectangle();
+        MapUVs();
         ApplyShader();
     }
 
@@ -46,6 +47,19 @@ public class RectangleDrawer : MonoBehaviour
         mesh.RecalculateNormals();
     }
     
+    private void MapUVs()
+    {
+        Debug.Log("Map UVs!");
+
+        Vector2[] uvs = new Vector2[vertices.Length];
+        uvs[0] = new Vector2(0, 0);
+        uvs[1] = new Vector2(1, 0);
+        uvs[2] = new Vector2(1, 1);
+        uvs[3] = new Vector2(0, 1);
+        
+        mesh.uv = uvs;
+    }
+
     private void ApplyShader()
     {
         Debug.Log("Apply Shader!");
