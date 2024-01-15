@@ -16,7 +16,7 @@ Shader "Tutorial/Texture"{
 
 			struct v2f {
 				float4 pos: SV_POSITION;
-				fixed2 uv : TEXCOORDO;  
+				fixed2 uv : TEXCOORD0;  
 			};
 
 			float4 _MainTex_ST;

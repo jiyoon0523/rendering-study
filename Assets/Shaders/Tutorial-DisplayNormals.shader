@@ -10,7 +10,7 @@ Shader "Tutorial/Display Normals"{
 
 			struct v2f {
 				float4 pos: SV_POSITION;
-				fixed3 color : COLORO;
+				fixed3 color : COLOR0;
 			};
 
 			v2f vert(appdata_base v) {
