@@ -12,6 +12,7 @@ public class RectangleDrawer : MonoBehaviour
     private MeshRenderer meshRenderer;
 
     [SerializeField] private Vector3[] vertices = new Vector3[4];
+    [SerializeField] private Vector2[] uvs = new Vector2[4];
 
     private void Awake()
     {
@@ -50,13 +51,6 @@ public class RectangleDrawer : MonoBehaviour
     private void MapUVs()
     {
         Debug.Log("Map UVs!");
-
-        Vector2[] uvs = new Vector2[vertices.Length];
-        uvs[0] = new Vector2(0, 0);
-        uvs[1] = new Vector2(1, 0);
-        uvs[2] = new Vector2(1, 1);
-        uvs[3] = new Vector2(0, 1);
-        
         mesh.uv = uvs;
     }
 
