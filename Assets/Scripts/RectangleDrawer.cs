@@ -12,6 +12,7 @@ public class RectangleDrawer : MonoBehaviour
     private MeshRenderer meshRenderer;
 
     [SerializeField] private Vector3[] vertices = new Vector3[4];
+    [SerializeField] private Vector2[] uvs = new Vector2[4];
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class RectangleDrawer : MonoBehaviour
     private void Start()
     {
         DrawRectangle();
+        MapUVs();
         ApplyShader();
     }
 
@@ -46,6 +48,12 @@ public class RectangleDrawer : MonoBehaviour
         mesh.RecalculateNormals();
     }
     
+    private void MapUVs()
+    {
+        Debug.Log("Map UVs!");
+        mesh.uv = uvs;
+    }
+
     private void ApplyShader()
     {
         Debug.Log("Apply Shader!");
